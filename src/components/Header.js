@@ -1,8 +1,19 @@
 import React from "react";
 import classes from "./Header.module.css";
 
-const Header = () => {
-  return <div className={`${classes.header}`}>Header</div>;
+import Search from "./Search";
+
+const Header = ({ value, onChange }) => {
+  return (
+    <div className={`${classes.header}`}>
+      <h1>Linh Le</h1>
+      <Search
+        className={`${classes.search}`}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
 };
 
 export default Header;

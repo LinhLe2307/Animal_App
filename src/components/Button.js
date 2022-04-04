@@ -1,15 +1,16 @@
 import React from "react";
+// import classes from "./Button.module.css";
 
-const Button = ({ add, animalsName }) => {
-
+const Button = ({ className, click, animalsName, btnName }) => {
   return (
     <button
+      className={className}
       onClick={() => {
-        console.log(animalsName);
-        add(animalsName);
+        // console.log(animalsName);
+        click(animalsName);
       }}
     >
-      Add like
+      {btnName}
     </button>
   );
 };
