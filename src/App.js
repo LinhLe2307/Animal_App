@@ -2,6 +2,8 @@ import "./App.css";
 import React, { Component } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
+// import Link from "./components/Link";
+
 // import Card from "./components/Card";
 // import classes from "./components/Main.module.css";
 import animals from "./components/animals";
@@ -68,11 +70,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header
-          value={this.state.text}
-          onChange={this.searchChangeHandler}
-          // onSubmit={this.handleSubmit}
-        />
+        <Header value={this.state.text} onChange={this.searchChangeHandler} />
         <Main
           animals={this.state.animals}
           add={this.addLikeHandler}
