@@ -1,14 +1,14 @@
 import React from "react";
-import classes from "./Image.module.css";
+// import classes from "./Image.module.css";
 
-const Image = ({ title }) => {
+const Image = ({ className, title }) => {
   return (
-    <div>
+    <>
       <img
         src={`https://source.unsplash.com/1600x900/?${title}`}
-        className={classes.img}
+        className={className}
       />
-    </div>
+    </>
   );
 };
 

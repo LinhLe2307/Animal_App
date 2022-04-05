@@ -4,25 +4,27 @@ import Image from "./Image";
 import Button from "./Button";
 // import Link from "./Link";
 
-const Card = ({ animalsName, likesNumber, add, remove}) => {
+const Card = ({ animalsName, likesNumber, add, remove }) => {
   return (
     <div className={`${classes.card}`}>
-      <Image title={animalsName} />
-      <h2>{animalsName}</h2>
+      <div className={classes.imageDiv}>
+        <Image className={classes.img} title={animalsName} />
+      </div>
       <div>
-        {likesNumber}
-        <div>
+        <h2>{animalsName}</h2>
+        <h2>{likesNumber}</h2>
+        <Button
+          className={`${classes.remove}`}
+          click={remove}
+          animalsName={animalsName}
+          btnName="X"
+        />
+        <div className={`${classes.buttonsGroup}`}>
           <Button
             className={`${classes.add}`}
             click={add}
             animalsName={animalsName}
-            btnName="Add Button"
-          />
-          <Button
-            className={`${classes.remove}`}
-            click={remove}
-            animalsName={animalsName}
-            btnName="X"
+            btnName="Add Like"
           />
           <a
             href={`https://en.wikipedia.org/wiki/${animalsName}`}
