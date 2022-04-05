@@ -11,6 +11,7 @@ const Card = ({ animalsName, likesNumber, add, remove }) => {
         <Image className={classes.img} title={animalsName} />
       </div>
       <div>
+
         <h2>{animalsName}</h2>
         <h2>{likesNumber}</h2>
         <Button
@@ -26,7 +27,7 @@ const Card = ({ animalsName, likesNumber, add, remove }) => {
             animalsName={animalsName}
             btnName="Add Like"
           />
-          <a
+          {/* <a
             href={`https://en.wikipedia.org/wiki/${animalsName}`}
             target="_blank"
           >
@@ -35,7 +36,7 @@ const Card = ({ animalsName, likesNumber, add, remove }) => {
               animalsName={animalsName}
               btnName="See More"
             />
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

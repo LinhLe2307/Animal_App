@@ -8,19 +8,10 @@ import Main from "./components/Main";
 // import classes from "./components/Main.module.css";
 import animals from "./components/animals";
 
-// function App() {
-
-//   return (
-//     <div className="App">
-//       <Header />
-//       <Main />
-//     </div>
-//   );
-// }
 class App extends Component {
   state = {
     animals: animals,
-    text: "",
+    search: "",
   };
   addLikeHandler = (name) => {
     this.setState((state) => {
@@ -47,32 +38,43 @@ class App extends Component {
     });
   };
 
-  searchChangeHandler = (name) => {
-    if (!name) {
-      return this.setState({
-        text: name,
-        animals: animals,
-      });
-    } else {
-      this.setState((state) => {
-        const searchAnimalCards = state.animals.filter((animal) => {
-          return animal.name.indexOf(name.trim().toLowerCase()) !== -1;
-        });
-        // console.log(searchAnimalCards);
-        return {
-          text: name,
-          animals: searchAnimalCards,
-        };
-      });
-    }
+  // searchHandler = (name) => {
+  //   console.log(this.state.search);
+  //   if (!name) {
+  //     return this.setState({
+  //       search: name,
+  //       animals: animals,
+  //     });
+  //   } else {
+  //     this.setState((state) => {
+  //       const searchAnimalCards = state.animals.filter((animal) => {
+  //         return animal.name.indexOf(name.trim().toLowerCase()) !== -1;
+  //       });
+  //       // console.log(searchAnimalCards);
+  //       return {
+  //         search: name,
+  //         animals: searchAnimalCards,
+  //       };
+  //     });
+  //   }
+  // };
+
+  searchHandler = (e) => {
+    this.setState({ search: e.target.value });
   };
 
   render() {
+    const animalFilter = this.state.animals.filter((animal) =>
+      animal.name.toLowerCase().includes(this.state.search.toLowerCase())
+    );
+
     return (
       <>
-        <Header value={this.state.text} onChange={this.searchChangeHandler} />
+        <Header value={this.state.search} onChange={this.searchHandler} />
+        <h1>{this.state.animals.length} Animals</h1>
+        <h3>{this.state.search}</h3>
         <Main
-          animals={this.state.animals}
+          animals={animalFilter}
           add={this.addLikeHandler}
           remove={this.removeCardHandler}
         />
